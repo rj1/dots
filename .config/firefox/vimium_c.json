@@ -1,0 +1,43 @@
+{
+	"name": "Vimium C",
+	"@time": "9/4/2023, 10:21:35 AM",
+	"time": 1693844495681,
+	"environment": {
+		"extension": "1.99.995",
+		"platform": "linux",
+		"firefox": 117
+	},
+	"clipSub": [
+		"p=^git@([^/:]+):=https://$1/=",
+		"s@^https://(?:www\\.)?google\\.com(?:\\.[^/]+)?/url\\?(?:[^&#]+&)*?url=([^&#]+)@$1@,matched,decodecomp",
+		""
+	],
+	"extAllowList": "# extension id or hostname",
+	"grabBackFocus": true,
+	"keyMappings": [
+		"#!no-check",
+		"#map K previousTab",
+		"#map J nextTab",
+		"map <c-s-h> zoomReset",
+		"map <c-s-k> zoomIn",
+		"map <c-s-j> zoomOut",
+		"map U LinkHints.activateCopyLinkUrl",
+		""
+	],
+	"nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+	"previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+	"searchEngines": [
+		":sx|searx: https://paulgo.io/search?q=$s",
+		":qw|qwant: https://lite.qwant.com/?q=$s",
+		":g|google: https://google.com/search?q=$s",
+		":gi|google img: https://www.google.com/search?q=$s&source=lnms&tbm=isch",
+		":yi|yahoo img: https://images.search.yahoo.com/search/images?p=$s",
+		":w|wikpedia: https://en.wikipedia.org/?search=$s",
+		":gh|github: https://github.com/search?q=$s",
+		":yt|youtube: https://www.youtube.com/results?search_query=$s",
+		":pb|pirate bay:https://thepiratebay.org/search.php?q=$s&all=on&search=Pirate+Search&page=0&orderby=",
+		""
+	],
+	"searchUrl": "https://paulgo.io/search?q=$s paulgo",
+	"vimSync": true
+}

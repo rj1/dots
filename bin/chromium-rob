@@ -1,0 +1,3 @@
+#!/bin/sh
+# /usr/bin/chromium --profile-directory="Default" --enable-features=UseOzonePlatform --ozone-platform=wayland --force-device-scale-factor=1.3
+/usr/bin/chromium --profile-directory="Default" --force-device-scale-factor=1.3
