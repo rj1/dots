@@ -8,6 +8,11 @@ require("telescope").setup({
 		buffers = {
 			previewer = false,
 		},
+		live_grep = {
+			additional_args = {
+				'--fixed-strings',
+			}
+		}
 	},
 	extensions = {
 		fzf = {
