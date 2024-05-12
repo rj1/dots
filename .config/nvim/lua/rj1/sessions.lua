@@ -1,5 +1,5 @@
 function Session_name()
-	return require("possession.session").session_name or "no session"
+	return require("possession.session").get_session_name() or "no session"
 end
 
 require("possession").setup({
