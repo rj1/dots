@@ -1,5 +1,5 @@
 # display settings
-output DP-1 res 3840x2160 pos 3840 0 scale 1
+output DP-1 res 3840x2160 pos 3840 0 scale 1 transform 90
 output DP-2 res 3840x2160 pos 0 0 scale 1
 
 # start xdg-desktop-portal (screen sharing)
