@@ -54,7 +54,7 @@ require("lazy").setup({
 			end, { expr = true })
 		end,
 	},
-	"Robitx/gp.nvim",
+	{ "Robitx/gp.nvim", branch = "copilot" },
 
 	-- syntax / editing
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
