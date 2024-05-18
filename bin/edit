@@ -108,7 +108,7 @@ window = tmux_session.select_window(str(find_window).split(":")[0].split()[1])
 
 # switch to first pane in session window (this is where i always have neovim)
 pane = window.panes[0]
-pane.select_pane()
+pane.select()
 
 # find the edit window in sway and focus it
 for window in sway().get_tree().leaves():
