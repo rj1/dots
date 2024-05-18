@@ -319,6 +319,7 @@ cmp.setup({
 				path = "path",
 				buffer = "buffer",
 				tmux = "tmux",
+				["vim-dadbod-completion"] = "db",
 			})[entry.source.name]
 
 			vim_item.kind = icon
@@ -363,6 +364,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "buffer" },
 		{ name = "tmux" },
+		{ name = "vim-dadbod-completion" },
 	},
 	window = {
 		completion = {
