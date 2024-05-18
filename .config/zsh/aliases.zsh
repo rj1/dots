@@ -91,7 +91,8 @@ cpsshot() {
 
     file="$HOME/img/sshot/$(/usr/bin/ls -Art $HOME/img/sshot | tail -n 1)"
     cp -f ${file} $1
-    echo "copied ${file}"
+    rm -f ${file}
+    echo "moved ${file}"
 }
 
 cpvid() {
@@ -102,7 +103,8 @@ cpvid() {
 
     file="$HOME/vid/screencast/$(/usr/bin/ls -Art $HOME/vid/screencast | tail -n 1)"
     cp -f ${file} $1
-    echo "copied ${file}"
+    rm -f ${file}
+    echo "moved ${file}"
 }
 
 androidproxy() {
