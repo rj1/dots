@@ -25,6 +25,8 @@ local function lsp_servers()
 	return table.concat(servers, ", ")
 end
 
+local navic = require("nvim-navic")
+
 -- lualine
 require("lualine").setup({
 	options = {
@@ -79,6 +81,11 @@ require("lualine").setup({
 					return { fg = colors.purple }
 				end,
 			},
+			{
+				"navic",
+				color_correction = nil,
+				navic_opts = nil
+			}
 			--[[ {
 				Codeium_status,
 				icon = "󰧑 ai:",

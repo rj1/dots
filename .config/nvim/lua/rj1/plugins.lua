@@ -26,6 +26,8 @@ require("lazy").setup({
 	"andersevenrud/cmp-tmux",
 	"microsoft/python-type-stubs",
 	"rafamadriz/friendly-snippets",
+	"SmiteshP/nvim-navic",
+
 	-- db
 	"tpope/vim-dadbod",
 	"kristijanhusak/vim-dadbod-ui",
