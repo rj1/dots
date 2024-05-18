@@ -10,10 +10,10 @@ exec wallpaper
 
 # winkey
 set $mod mod4
-set $left h
-set $down j
-set $up k
-set $right l
+set $left n
+set $down e
+set $up i
+set $right o
 
 # keeb settings
 input "type:keyboard" {
@@ -99,7 +99,7 @@ bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+shift+s exec screen-record
 
 # snippet
-bindsym $mod+n exec snippet-rofi
+# bindsym $mod+n exec snippet-rofi
 
 # color picker
 bindsym $mod+c exec hyprpicker --autocopy 
