@@ -202,3 +202,7 @@ vim.keymap.set("n", "<leader>as", ":GpChatRespond<cr>", { desc = "gpt: send mess
 vim.keymap.set("v", "<leader>an", ":<C-u>'<,'>GpChatNew<cr>", { desc =  "gpt: new chat buffer" })
 vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>GpChatPaste tabnew<cr>", { desc = "gpt: chat paste" })
 vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>GpRewrite<cr>", { desc = "gpt: rewrite selection" })
+
+-- db
+vim.keymap.set("n", "<leader>db", ":DBUI<cr>", { desc = "db: open dbui" })
+
