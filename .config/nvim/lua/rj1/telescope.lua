@@ -27,6 +27,7 @@ require("telescope").setup({
 		prompt_prefix = " 󰍉 ",
 		entry_prefix = "   ",
 		selection_caret = " 󰅂 ",
+		layout_strategy = "vertical",
 		layout_config = {
 			width = 0.8,
 			height = 0.5,
