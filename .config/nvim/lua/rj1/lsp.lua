@@ -84,7 +84,7 @@ local on_attach = function(_, buffer)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = buffer })
 
 	-- references
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = buffer })
+	vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<cr>")
 
 	-- hover code signature
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buffer })
