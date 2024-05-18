@@ -1,27 +1,49 @@
 local wk = require("which-key")
 wk.register()
 
-
--- reset shortmess to default
-vim.keymap.set("n", "<leader>rs", ":set shortmess=filnxtToOF<cr>", { silent = true })
+vim.cmd([[
+noremap n h|        "move Left
+noremap e gj|       "move Down
+noremap i gk|       "move Up
+noremap o l|        "move Right
+noremap t i|        "(t)ype           replaces (i)nsert
+noremap T I|        "(T)ype at bol    replaces (I)nsert
+noremap E e|        "end of word      replaces (e)nd
+noremap <Right> n|        "next match       replaces (n)ext
+noremap <Left> N|        "previous match   replaces (N) prev
+noremap <C-m> m|    "mark             replaces (m)ark
+noremap l o|
+noremap L O|
+noremap O $|
+noremap N 0|
+nnoremap cl cl|
+nnoremap ci ci|
+nnoremap di di|
+nnoremap vi vi|
+nnoremap yi yi|
+nnoremap ct ct|
+nnoremap dt dt|
+nnoremap vt vt|
+nnoremap yt yt|
+]])
 
 -- buffer navigation
-vim.keymap.set("n", "<c-k>", "<plug>(cokeline-focus-next)", { silent = true })
-vim.keymap.set("n", "<c-j>", "<plug>(cokeline-focus-prev)", { silent = true })
+vim.keymap.set("n", "<c-i>", "<plug>(cokeline-focus-next)", { silent = true })
+vim.keymap.set("n", "<c-e>", "<plug>(cokeline-focus-prev)", { silent = true })
 vim.keymap.set("n", "<c-w>", ":bd!<cr>", { silent = true })
 
 -- new file, save file
 vim.keymap.set("n", "<c-n>", ":enew<cr>", { silent = true })
-vim.keymap.set("n", "<c-s>", ":update<cr>", { silent = false })
+vim.keymap.set("n", "<c-s>", ":update<cr>", { silent = true })
 
 -- splits
 vim.keymap.set("n", "ss", ":split<cr>", { silent = true })
 vim.keymap.set("n", "sv", ":vsplit<cr>", { silent = true })
 vim.keymap.set("n", "sc", ":close<cr>", { silent = true })
-vim.keymap.set("n", "sh", "<c-w>h", { silent = true })
-vim.keymap.set("n", "sj", "<c-w>j", { silent = true })
-vim.keymap.set("n", "sk", "<c-w>k", { silent = true })
-vim.keymap.set("n", "sl", "<c-w>l", { silent = true })
+vim.keymap.set("n", "sn", "<c-w>h", { silent = true })
+vim.keymap.set("n", "se", "<c-w>j", { silent = true })
+vim.keymap.set("n", "si", "<c-w>k", { silent = true })
+vim.keymap.set("n", "so", "<c-w>l", { silent = true })
 
 -- don't let fugitive remap our s key so wo maintain our split navigation
 vim.api.nvim_create_autocmd("FileType", {
@@ -36,7 +58,7 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- toggle highlight
-vim.keymap.set("n", "<Left>", ":set hls!<cr>", { silent = true })
+vim.keymap.set("n", "<a-h>", ":set hls!<cr>", { silent = true })
 
 -- toggle file explorer
 vim.keymap.set("n", "<c-b>", ":NvimTreeToggle<cr>")
@@ -160,13 +182,10 @@ vim.keymap.set("n", "<leader>fd", function()
 end)
 
 -- trouble.nvim
-vim.keymap.set("n", "<leader>tt", "<cmd>TroubleToggle workspace_diagnostics<cr>")
+vim.keymap.set("n", "<leader>dw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
 
 -- bind :W to :write
 vim.api.nvim_create_user_command("W", "write", {})
-
-vim.keymap.set({ "n", "x", "o" }, "H", "0", { silent = true })
-vim.keymap.set({ "n", "x", "o" }, "L", "$", { silent = true })
 
 -- keymap to toggle between relative and absolute line numbers
 vim.keymap.set("n", "<c-l>", function()
