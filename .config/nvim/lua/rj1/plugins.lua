@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"olimorris/onedarkpro.nvim",
 	-- lsp
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
