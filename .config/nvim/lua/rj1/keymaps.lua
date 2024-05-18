@@ -206,3 +206,23 @@ vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>GpRewrite<cr>", { desc = "gpt: rew
 -- db
 vim.keymap.set("n", "<leader>db", ":DBUI<cr>", { desc = "db: open dbui" })
 
+function formatted_list_with_quotes(quotes)
+  local selected_lines = vim.api.nvim_buf_get_lines(0, vim.fn.line("'<")-1, vim.fn.line("'>"), false)
+  local formatted_values = {}
+
+  for _, line in ipairs(selected_lines) do
+    local trimmed_value = line:match("^%s*(.-)%s*$")  -- Trims leading and trailing whitespace
+    if quotes then
+      table.insert(formatted_values, "'" .. trimmed_value .. "'")
+    else
+      table.insert(formatted_values, trimmed_value)
+    end
+  end
+
+  local formatted_text = table.concat(formatted_values, ', ')
+
+  vim.api.nvim_buf_set_lines(0, vim.fn.line("'<")-1, vim.fn.line("'>"), false, {formatted_text})
+end
+
+vim.api.nvim_set_keymap('x', '<leader>fl', ':lua formatted_list_with_quotes(false)<CR>', { desc="turn list into comma separated string", noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<leader>flq', ':lua formatted_list_with_quotes(true)<CR>', { desc = "turn list into comma separated string (quotes)", noremap = true, silent = true })
