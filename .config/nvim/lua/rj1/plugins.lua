@@ -30,30 +30,14 @@ require("lazy").setup({
 	-- db
 	"tpope/vim-dadbod",
 	"kristijanhusak/vim-dadbod-ui",
-	{ "kristijanhusak/vim-dadbod-completion", 
+	{ "kristijanhusak/vim-dadbod-completion",
 	  init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
 		end,
 	},
 
 	-- ai
-	{
-		"Exafunction/codeium.vim",
-		config = function()
-			vim.keymap.set("i", "<Right>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true })
-			vim.keymap.set("i", "<a-]>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true })
-			vim.keymap.set("i", "<a-[>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true })
-			vim.keymap.set("i", "<a-x>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true })
-		end,
-	},
+	"Exafunction/codeium.nvim",
 	{ "Robitx/gp.nvim", branch = "copilot" },
 
 	-- syntax / editing

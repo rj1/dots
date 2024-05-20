@@ -1,22 +1,25 @@
 -- codeium
--- vim.g.codeium_enabled = false
--- vim.g.codeium_disable_bindings = 1
+-- disabled by default
+vim.g.codeium_enabled = false
+require("codeium").setup()
 
---[[ function Codeium_status()
-	local status = vim.fn["codeium#GetStatusString"]()
-	status = string.gsub(status, "^%s+", "")
-	status = string.lower(status)
-	return status
-end ]]
+local function is_codeium_enabled()
+  return vim.g.codeium_enabled
+end
 
--- use <leader>ai to toggle codeium
---[[ vim.keymap.set("n", "<leader>ai", function()
-	if Codeium_status() == "on" then
-		vim.g.codeium_enabled = false
-	else
-		vim.g.codeium_enabled = true
-	end
-end, { noremap = true }) ]]
+local source = require("codeium.source")
+function source:is_available()
+  local enabled = is_codeium_enabled()
+  return enabled and self.server.is_healthy()
+end
+
+vim.api.nvim_set_keymap('n', '<leader>ai', '', {
+  callback = function()
+    local new_enabled = not is_codeium_enabled()
+    vim.g.codeium_enabled = new_enabled
+  end,
+  noremap = true
+})
 
 
 local function fetch_openai_key()

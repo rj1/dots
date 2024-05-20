@@ -27,6 +27,14 @@ end
 
 local navic = require("nvim-navic")
 
+local function is_codeium_enabled()
+  if vim.g.codeium_enabled then
+		return "on"
+	else
+		return "off"
+	end
+end
+
 -- lualine
 require("lualine").setup({
 	options = {
@@ -82,21 +90,21 @@ require("lualine").setup({
 				end,
 			},
 			{
-				"navic",
-				color_correction = nil,
-				navic_opts = nil
-			}
-			--[[ {
-				Codeium_status,
+				is_codeium_enabled,
 				icon = "󰧑 ai:",
 
 				color = function()
-					if Codeium_status() == "on" then
+					if vim.g.codeium_enabled then
 						return { fg = colors.green }
 					else
 						return { fg = colors.red }
 					end
 				end,
+			},
+			--[[ {
+				"navic",
+				color_correction = nil,
+				navic_opts = nil
 			}, ]]
 		},
 		lualine_b = {
