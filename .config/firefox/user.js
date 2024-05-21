@@ -9,7 +9,7 @@ user_pref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
 user_pref('layout.css.devPixelsPerPx', 1.5);
 
 // disable pasting w/ middlemouse button
-user_pref('middlemouse.paste', false)
+user_pref('middlemouse.paste', false);
 
 // hardware acceleration
 user_pref('media.ffmpeg.vaapi.enabled', true);
