@@ -381,16 +381,21 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+	experimental = {
+		ghost_text = { hlgroup = "Comment" },
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
 		end,
 	},
+
 	mapping = cmp.mapping.preset.insert({
 		["<c-u>"] = cmp.mapping.scroll_docs(-4),
 		["<c-d>"] = cmp.mapping.scroll_docs(4),
 		["<c-space>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
 		["<cr>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+		["<right>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 		["<tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
