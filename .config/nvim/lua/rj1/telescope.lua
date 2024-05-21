@@ -4,6 +4,7 @@ require("telescope").setup({
 			previewer = false,
 			hidden = true,
 			file_ignore_patterns = { ".git/" },
+			theme = "dropdown",
 		},
 		buffers = {
 			previewer = false,
@@ -11,7 +12,8 @@ require("telescope").setup({
 		live_grep = {
 			additional_args = {
 				'--fixed-strings',
-			}
+			},
+			theme = "dropdown",
 		}
 	},
 	extensions = {
