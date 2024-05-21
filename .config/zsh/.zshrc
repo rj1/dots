@@ -45,5 +45,10 @@ fpath+=$XDG_CONFIG_HOME/zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-source ~/.config/zsh/zsh-artisan/artisan.plugin.zsh
+if [ ! -d ~/.config/zsh/zsh-artisan ]; then
+  git clone https://github.com/jessarcher/zsh-artisan ~/.config/zsh/zsh-artisan
+else
+  source ~/.config/zsh/zsh-artisan/artisan.plugin.zsh
+fi
+
 zinit load "zsh-users/zsh-syntax-highlighting"
