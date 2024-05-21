@@ -83,7 +83,7 @@ require("lualine").setup({
 				icon = "",
 
 				color = function()
-					if vim.lsp.util.get_progress_messages()[1] then
+					if vim.lsp.status()[1] then
 						return { fg = colors.red }
 					end
 					return { fg = colors.purple }
