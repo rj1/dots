@@ -1,38 +1,32 @@
 -- codeium
 -- disabled by default
+vim.g.codeium_disable_bindings = true
 vim.g.codeium_enabled = false
-require("codeium").setup()
 
-local function is_codeium_enabled()
-  return vim.g.codeium_enabled
-end
+function Toggle_codeium()
+	vim.g.codeium_enabled = not vim.g.codeium_enabled
 
-local source = require("codeium.source")
-function source:is_available()
-  local enabled = is_codeium_enabled()
-  return enabled and self.server.is_healthy()
-end
+	if vim.g.codeium_enabled then
+		-- HACK: why do we have to do this?
+		vim.cmd(':Codeium EnableBuffer')
 
-vim.api.nvim_set_keymap('n', '<leader>ai', '', {
-  callback = function()
-    local new_enabled = not is_codeium_enabled()
-    vim.g.codeium_enabled = new_enabled
-  end,
-  noremap = true
-})
+		-- set keybinds for ai completions
+		vim.keymap.set('i', '<right>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+		vim.keymap.set('i', '<up>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
+		vim.keymap.set('i', '<down>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
+	else
+		-- HACK: why do we have to do this?
+		vim.cmd(':Codeium DisableBuffer')
 
-
-local function fetch_openai_key()
-	local handle = io.popen("pass dev/openai.com/openai_key")
-	if handle ~= nil then
-		local key = string.gsub(handle:read("*a"), "\n", "")
-		handle:close()
-		return key
+		-- unset keybinds for ai completions
+		vim.keymap.del('i', '<right>')
+		vim.keymap.del('i', '<up>')
+		vim.keymap.del('i', '<down>')
 	end
 end
 
-local function fetch_groq_key()
-	local handle = io.popen("pass dev/groq.com/nvim_key")
+vim.api.nvim_set_keymap('n', '<leader>ai', ':lua Toggle_codeium()<cr>', { noremap = true, silent = true })
+
 	if handle ~= nil then
 		local key = string.gsub(handle:read("*a"), "\n", "")
 		handle:close()

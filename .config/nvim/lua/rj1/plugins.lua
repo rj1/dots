@@ -37,7 +37,7 @@ require("lazy").setup({
 	},
 
 	-- ai
-	"Exafunction/codeium.nvim",
+	'Exafunction/codeium.vim',
 	{ "Robitx/gp.nvim", branch = "copilot" },
 
 	-- syntax / editing

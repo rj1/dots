@@ -29,7 +29,15 @@ local navic = require("nvim-navic")
 
 local function is_codeium_enabled()
   if vim.g.codeium_enabled then
-		return "on"
+		local status = vim.api.nvim_call_function("codeium#GetStatusString", {})
+
+		if status == " ON" then
+			status = "on"
+		elseif status == " * " then
+			status = "loading.."
+		end
+
+		return status
 	else
 		return "off"
 	end

@@ -366,7 +366,6 @@ cmp.setup({
 			text = string.lower(text)
 
 			local source = ({
-				codeium = "ai",
 				nvim_lsp = "lsp",
 				luasnip = "luasnip",
 				path = "path",
@@ -380,9 +379,6 @@ cmp.setup({
 
 			return vim_item
 		end,
-	},
-	experimental = {
-		ghost_text = { hlgroup = "Comment" },
 	},
 	snippet = {
 		expand = function(args)
@@ -416,7 +412,6 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = {
-		{ name = "codeium" },
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
