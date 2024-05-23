@@ -27,6 +27,9 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>ai', ':lua Toggle_codeium()<cr>', { noremap = true, silent = true })
 
+
+local function fetch_pass_entry(entry)
+	local handle = io.popen(entry)
 	if handle ~= nil then
 		local key = string.gsub(handle:read("*a"), "\n", "")
 		handle:close()
@@ -38,7 +41,7 @@ require("gp").setup({
 	providers = {
 		openai = {
 			endpoint = "https://api.groq.com/openai/v1/chat/completions",
-			secret = fetch_groq_key(),
+			secret = fetch_pass_entry("pass dev/groq.com/nvim_key"),
 		},
 	},
 	agents = {
