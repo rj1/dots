@@ -4,7 +4,6 @@ require("telescope").setup({
 			previewer = false,
 			hidden = true,
 			file_ignore_patterns = { ".git/" },
-			theme = "dropdown",
 		},
 		buffers = {
 			previewer = false,
@@ -13,7 +12,6 @@ require("telescope").setup({
 			additional_args = {
 				'--fixed-strings',
 			},
-			theme = "dropdown",
 		}
 	},
 	extensions = {
@@ -31,8 +29,8 @@ require("telescope").setup({
 		selection_caret = " 󰅂 ",
 		layout_strategy = "vertical",
 		layout_config = {
-			width = 0.8,
-			height = 0.5,
+			width = 0.9,
+			height = 0.7,
 		},
 		mappings = {
 			i = {
