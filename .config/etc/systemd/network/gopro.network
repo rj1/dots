@@ -1,0 +1,9 @@
+[Match]
+Name=enp47s0f3u3u3
+LinkLocalAddressing=no
+
+[DHCP]
+UseDNS=false
+
+[Network]
+DHCP=yes
