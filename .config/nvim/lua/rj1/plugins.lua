@@ -38,7 +38,10 @@ require("lazy").setup({
 
 	-- ai
 	'Exafunction/codeium.vim',
-	{ "rj1/ai.nvim" },
+	{
+		"rj1/ai.nvim",
+		dev = true
+	},
 
 	-- syntax / editing
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
