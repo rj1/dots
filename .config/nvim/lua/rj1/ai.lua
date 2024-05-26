@@ -91,4 +91,5 @@ require("gp").setup({
 	chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/ai/chats",
 	chat_user_prefix = "## prompt",
 	chat_assistant_prefix = "## response ",
+	chat_agent_prefix = "current agent: ",
 })
