@@ -38,7 +38,7 @@ require("lazy").setup({
 
 	-- ai
 	'Exafunction/codeium.vim',
-	{ "Robitx/gp.nvim", branch = "copilot" },
+	{ "rj1/ai.nvim" },
 
 	-- syntax / editing
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
