@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>rs", ":set shortmess=filnxtToOF<cr>", { silent = tr
 -- buffer navigation
 vim.keymap.set("n", "<c-k>", "<plug>(cokeline-focus-next)", { silent = true })
 vim.keymap.set("n", "<c-j>", "<plug>(cokeline-focus-prev)", { silent = true })
-vim.keymap.set("n", "<c-w>", ":bd!<cr>", { silent = true })
+vim.keymap.set("n", "<c-w>", ":bd!<cr>", { silent = true, nowait = true })
 
 -- new file, save file
 vim.keymap.set("n", "<c-n>", ":enew<cr>", { silent = true })
