@@ -98,6 +98,11 @@ require("lazy").setup({
 
 	-- Rename/Delete/Chmod/etc
 	"tpope/vim-eunuch",
+},
+{
+	dev = {
+		path = "~/play"
+	}
 })
 
 -- kommentary
