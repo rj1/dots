@@ -391,7 +391,6 @@ cmp.setup({
 		["<c-d>"] = cmp.mapping.scroll_docs(4),
 		["<c-space>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
 		["<cr>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-		["<right>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 		["<tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
