@@ -1,12 +1,28 @@
 #!/bin/bash
 
-sshot="/tmp/swaylockscreen.png"
-blurred="/tmp/swaylockscreen-blurred.png"
+# get displays
+outputs=($(swaymsg -t get_outputs | jq -r '.[] | .name'))
 
-grim $sshot && \
-ffmpeg -i $sshot -filter_complex boxblur=lr=8:lp=2 -y $blurred && \
-swaylock -i $blurred \
-  --font "Hack Nerd Font Mono" \
+# create an array to store the output files
+output_files=()
+
+# take a screenshot of each output, blur it, and store the file name
+for output in "${outputs[@]}"; do
+  echo "Output: $output"
+  grim -o $output "/tmp/$output-sshot.png"
+  ffmpeg -i "/tmp/$output-sshot.png" -filter_complex boxblur=lr=8:lp=2 -y "/tmp/$output-blurred.png"
+  output_files+=("/tmp/$output-blurred.png")
+done
+
+# construct swaylock command
+swaylock_command="swaylock"
+for ((i=0; i<${#outputs[@]}; i++)); do
+  swaylock_command+=" -i ${outputs[$i]}:${output_files[$i]}"
+done
+
+# add other options to the swaylock command
+swaylock_command+=" \
+  --font \"Hack Nerd Font Mono\" \
   --font-size=25 \
   --text-color ffffffff \
   --ring-color c678dd \
@@ -17,6 +33,10 @@ swaylock -i $blurred \
   --line-color 00000000 \
   --inside-color 282c34 \
   --separator-color 00000000 \
-  --indicator-radius=100
+  --indicator-radius=100"
 
-rm -f $sshot $blurred
+# lock the screen
+eval $swaylock_command
+
+# rm files
+rm -f "${output_files[@]}"
