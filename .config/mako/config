@@ -1,7 +1,7 @@
-anchor=bottom-right
+anchor=bottom-center
 sort=-time
 layer=overlay
-background-color=#2e3440
+background-color=#2e3440aa
 width=200
 height=150
 border-size=1
@@ -10,5 +10,4 @@ icons=0
 max-icon-size=64
 default-timeout=5000
 font=Hack Nerd Font Mono 16
-output=HDMI-A-1
 on-notify=exec mpv ~/.config/mako/notify.ogg
