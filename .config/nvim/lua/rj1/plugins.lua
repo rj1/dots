@@ -37,7 +37,7 @@ require("lazy").setup({
 	},
 
 	-- ai
-	'Exafunction/codeium.vim',
+	'supermaven-inc/supermaven-nvim',
 	{
 		"rj1/ai.nvim",
 		dev = true

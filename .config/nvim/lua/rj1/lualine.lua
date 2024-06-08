@@ -43,6 +43,16 @@ local function is_codeium_enabled()
 	end
 end
 
+local supermaven = require("supermaven-nvim.api")
+
+local function is_supermaven_enabled()
+	if supermaven.is_running() then
+		return "on"
+	else
+		return "off"
+	end
+end
+
 -- lualine
 require("lualine").setup({
 	options = {
@@ -98,11 +108,11 @@ require("lualine").setup({
 				end,
 			},
 			{
-				is_codeium_enabled,
+				is_supermaven_enabled,
 				icon = "󰧑 ai:",
 
 				color = function()
-					if vim.g.codeium_enabled then
+					if supermaven.is_running() then
 						return { fg = colors.green }
 					else
 						return { fg = colors.red }
