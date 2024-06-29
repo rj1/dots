@@ -195,13 +195,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- openai
-vim.keymap.set("n", "<leader>an", ":GpChatNew<cr>", { desc = "gpt: new chat buffer" })
-vim.keymap.set("n", "<leader>ap", ":GpChatToggle<cr>", { desc = "gpt: chat popup" })
-vim.keymap.set("n", "<leader>as", ":GpChatRespond<cr>", { desc = "gpt: send message" })
+vim.keymap.set("n", "<leader>an", ":AiChatNew<cr>", { desc = "gpt: new chat buffer" })
+vim.keymap.set("n", "<leader>ap", ":AiChatToggle<cr>", { desc = "gpt: chat popup" })
+vim.keymap.set("n", "<leader>as", ":AiChatRespond<cr>", { desc = "gpt: send message" })
 
-vim.keymap.set("v", "<leader>an", ":<C-u>'<,'>GpChatNew<cr>", { desc =  "gpt: new chat buffer" })
-vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>GpChatPaste tabnew<cr>", { desc = "gpt: chat paste" })
-vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>GpRewrite<cr>", { desc = "gpt: rewrite selection" })
+vim.keymap.set("v", "<leader>an", ":<C-u>'<,'>AiChatNew<cr>", { desc =  "gpt: new chat buffer" })
+vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>AiChatPaste tabnew<cr>", { desc = "gpt: chat paste" })
+vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>AiRewrite<cr>", { desc = "gpt: rewrite selection" })
+
 
 -- db
 vim.keymap.set("n", "<leader>db", ":DBUI<cr>", { desc = "db: open dbui" })
