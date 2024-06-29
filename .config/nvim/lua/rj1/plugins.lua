@@ -48,7 +48,6 @@ require("lazy").setup({
 	"windwp/nvim-ts-autotag",
 	"windwp/nvim-autopairs",
 	"mhartington/formatter.nvim",
-	"Vimjas/vim-python-pep8-indent",
 	"jidn/vim-dbml",
 	"b3nj5m1n/kommentary",
 	"JoosepAlviste/nvim-ts-context-commentstring",
