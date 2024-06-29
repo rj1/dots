@@ -23,7 +23,7 @@ end
 vim.api.nvim_set_keymap('n', '<leader>ai', ':lua Toggle_supermaven()<cr>', { noremap = true, silent = true })
 
 local function fetch_pass_entry(entry)
-	local handle = io.popen(entry)
+	local handle = io.popen("pass " .. entry)
 	if handle ~= nil then
 		local key = string.gsub(handle:read("*a"), "\n", "")
 		handle:close()
@@ -34,7 +34,7 @@ end
 require("ai").setup({
 	providers = {
 		openai = {
-			secret = fetch_pass_entry("pass/ai/openai.com/keys/ai.nvim")
+			secret = fetch_pass_entry("dev/openai.com/openai_key")
 		},
 		groq = {
 			secret = fetch_pass_entry("dev/groq.com/nvim_key")
