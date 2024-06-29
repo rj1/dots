@@ -10,7 +10,12 @@ if len(sys.argv) < 2:
 source_url = sys.argv[1]
 mpd = MPDClient()
 
-with YoutubeDL({"format": "bestaudio/audio"}) as youtube:
+ytdlp_options = {
+    "format": "bestaudio/audio",
+    "proxy": "http://10.0.0.1:8888"
+}
+
+with YoutubeDL(ytdlp_options) as youtube:
     info = youtube.extract_info(source_url, download=False)
     url = info.get("url")
     title = info.get("title")
