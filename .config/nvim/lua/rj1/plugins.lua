@@ -75,7 +75,6 @@ require("lazy").setup({
 	"uga-rosa/ccc.nvim",
 	"tversteeg/registers.nvim",
 	"jinh0/eyeliner.nvim",
-	"folke/which-key.nvim",
 
 	-- "lukas-reineke/indent-blankline.nvim",
 	"folke/trouble.nvim",

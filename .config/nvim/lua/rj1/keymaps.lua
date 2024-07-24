@@ -1,7 +1,3 @@
-local wk = require("which-key")
-wk.register()
-
-
 -- reset shortmess to default
 vim.keymap.set("n", "<leader>rs", ":set shortmess=filnxtToOF<cr>", { silent = true })
 
