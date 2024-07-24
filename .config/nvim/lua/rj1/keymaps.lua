@@ -194,14 +194,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- openai
-vim.keymap.set("n", "<leader>an", ":AiChatNew<cr>", { desc = "gpt: new chat buffer" })
-vim.keymap.set("n", "<leader>ap", ":AiChatToggle<cr>", { desc = "gpt: chat popup" })
-vim.keymap.set("n", "<leader>as", ":AiChatRespond<cr>", { desc = "gpt: send message" })
+-- llm prompting
+vim.keymap.set("n", "<leader>an", ":AiChatNew<cr>", { desc = "ai: new chat buffer" })
+vim.keymap.set("n", "<leader>as", ":lua require('ai').chat_respond()<cr>", { desc = "ai: send message" })
+vim.keymap.set("n", "<leader>ac", ":AiAgent<cr>", { desc = "ai: switch agent" })
 
-vim.keymap.set("v", "<leader>an", ":<C-u>'<,'>AiChatNew<cr>", { desc =  "gpt: new chat buffer" })
-vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>AiChatPaste tabnew<cr>", { desc = "gpt: chat paste" })
-vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>AiRewrite<cr>", { desc = "gpt: rewrite selection" })
+vim.keymap.set("n", '<leader>af', function()
+	require('telescope.builtin').find_files({cwd = '/home/rj1/.local/share/nvim/ai/chats'})
+end, { noremap = true, silent = true })
+
+vim.keymap.set("v", "<leader>an", ":<C-u>'<,'>AiChatNew<cr>", { desc =  "ai: new chat buffer" })
+vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>AiChatPaste tabnew<cr>", { desc = "ai: chat paste" })
+vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>AiRewrite<cr>", { desc = "ai: rewrite selection" })
+
 
 
 -- db
