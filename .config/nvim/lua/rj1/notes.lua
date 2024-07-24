@@ -5,19 +5,6 @@ vim.api.nvim_create_autocmd({ "bufenter", "bufleave" }, {
 	command = "setl noswapfile noundofile nobackup viminfo=",
 })
 
---[[ require("mkdnflow").setup({
-	perspective = {
-		priority = "current",
-	},
-	links = {
-		transform_explicit = function(text)
-			text = text:gsub(" ", "-")
-			text = text:lower()
-			return text
-		end,
-	},
-}) ]]
-
 -- create daily journal entry command
 local function daily_file(directory)
 	local date_string = os.date("%Y-%m-%d")
